@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		191B8D7128D66A3D0094D632 /* SubmeterBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B8D7028D66A3D0094D632 /* SubmeterBackground.swift */; };
+		191B8D7628D690FE0094D632 /* BatteryLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B8D7528D690FE0094D632 /* BatteryLevel.swift */; };
+		191B8D7828D6916C0094D632 /* CenterShaft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B8D7728D6916C0094D632 /* CenterShaft.swift */; };
+		19874B0728D74B4800DD5EE7 /* HourScaleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19874B0628D74B4800DD5EE7 /* HourScaleShape.swift */; };
+		19874B0928D74B7000DD5EE7 /* MinuteScaleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19874B0828D74B7000DD5EE7 /* MinuteScaleShape.swift */; };
+		19874B0F28D8663800DD5EE7 /* SecondClockHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19874B0E28D8663800DD5EE7 /* SecondClockHand.swift */; };
+		19874B1228D8D93300DD5EE7 /* Shape+strokeAndFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19874B1128D8D93300DD5EE7 /* Shape+strokeAndFill.swift */; };
+		198EA1D428D5E725000DEE9F /* Chronometer.docc in Sources */ = {isa = PBXBuildFile; fileRef = 198EA1D328D5E725000DEE9F /* Chronometer.docc */; };
+		198EA1DA28D5E726000DEE9F /* Chronometer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198EA1CF28D5E725000DEE9F /* Chronometer.framework */; };
+		198EA1DF28D5E726000DEE9F /* ChronometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198EA1DE28D5E726000DEE9F /* ChronometerTests.swift */; };
+		198EA1E028D5E726000DEE9F /* Chronometer.h in Headers */ = {isa = PBXBuildFile; fileRef = 198EA1D228D5E725000DEE9F /* Chronometer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		198EA1EB28D5E796000DEE9F /* ChronometerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198EA1EA28D5E796000DEE9F /* ChronometerBackground.swift */; };
+		198EA1ED28D5F977000DEE9F /* ChronometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198EA1EC28D5F976000DEE9F /* ChronometerView.swift */; };
+		198EA1EF28D5FB01000DEE9F /* DayWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198EA1EE28D5FB01000DEE9F /* DayWheel.swift */; };
+		198EA1F128D62A7F000DEE9F /* ClockHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198EA1F028D62A7E000DEE9F /* ClockHand.swift */; };
+		198EA22828D65929000DEE9F /* DateWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198EA22728D65929000DEE9F /* DateWheel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		198EA1DB28D5E726000DEE9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 198EA1C628D5E725000DEE9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 198EA1CE28D5E725000DEE9F;
+			remoteInfo = Chronometer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		191B8D7028D66A3D0094D632 /* SubmeterBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmeterBackground.swift; sourceTree = "<group>"; };
+		191B8D7528D690FE0094D632 /* BatteryLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryLevel.swift; sourceTree = "<group>"; };
+		191B8D7728D6916C0094D632 /* CenterShaft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterShaft.swift; sourceTree = "<group>"; };
+		19874B0628D74B4800DD5EE7 /* HourScaleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourScaleShape.swift; sourceTree = "<group>"; };
+		19874B0828D74B7000DD5EE7 /* MinuteScaleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteScaleShape.swift; sourceTree = "<group>"; };
+		19874B0E28D8663800DD5EE7 /* SecondClockHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondClockHand.swift; sourceTree = "<group>"; };
+		19874B1128D8D93300DD5EE7 /* Shape+strokeAndFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+strokeAndFill.swift"; sourceTree = "<group>"; };
+		198EA1CF28D5E725000DEE9F /* Chronometer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Chronometer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		198EA1D228D5E725000DEE9F /* Chronometer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chronometer.h; sourceTree = "<group>"; };
+		198EA1D328D5E725000DEE9F /* Chronometer.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Chronometer.docc; sourceTree = "<group>"; };
+		198EA1D928D5E726000DEE9F /* ChronometerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChronometerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		198EA1DE28D5E726000DEE9F /* ChronometerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronometerTests.swift; sourceTree = "<group>"; };
+		198EA1EA28D5E796000DEE9F /* ChronometerBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronometerBackground.swift; sourceTree = "<group>"; };
+		198EA1EC28D5F976000DEE9F /* ChronometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronometerView.swift; sourceTree = "<group>"; };
+		198EA1EE28D5FB01000DEE9F /* DayWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWheel.swift; sourceTree = "<group>"; };
+		198EA1F028D62A7E000DEE9F /* ClockHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockHand.swift; sourceTree = "<group>"; };
+		198EA22728D65929000DEE9F /* DateWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateWheel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		198EA1CC28D5E725000DEE9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		198EA1D628D5E726000DEE9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				198EA1DA28D5E726000DEE9F /* Chronometer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		191B8D7228D68FBD0094D632 /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				198EA1F028D62A7E000DEE9F /* ClockHand.swift */,
+				191B8D7728D6916C0094D632 /* CenterShaft.swift */,
+				19874B0628D74B4800DD5EE7 /* HourScaleShape.swift */,
+				19874B0828D74B7000DD5EE7 /* MinuteScaleShape.swift */,
+				19874B0E28D8663800DD5EE7 /* SecondClockHand.swift */,
+			);
+			path = Atoms;
+			sourceTree = "<group>";
+		};
+		191B8D7328D68FD70094D632 /* Molecules */ = {
+			isa = PBXGroup;
+			children = (
+				198EA1EA28D5E796000DEE9F /* ChronometerBackground.swift */,
+				198EA1EE28D5FB01000DEE9F /* DayWheel.swift */,
+				198EA22728D65929000DEE9F /* DateWheel.swift */,
+				191B8D7028D66A3D0094D632 /* SubmeterBackground.swift */,
+				191B8D7528D690FE0094D632 /* BatteryLevel.swift */,
+			);
+			path = Molecules;
+			sourceTree = "<group>";
+		};
+		191B8D7428D68FE40094D632 /* Organisms */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Organisms;
+			sourceTree = "<group>";
+		};
+		19874B1028D8D8E800DD5EE7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				19874B1128D8D93300DD5EE7 /* Shape+strokeAndFill.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		198EA1C528D5E725000DEE9F = {
+			isa = PBXGroup;
+			children = (
+				198EA1D128D5E725000DEE9F /* Chronometer */,
+				198EA1DD28D5E726000DEE9F /* ChronometerTests */,
+				198EA1D028D5E725000DEE9F /* Products */,
+				198EA22128D63324000DEE9F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		198EA1D028D5E725000DEE9F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				198EA1CF28D5E725000DEE9F /* Chronometer.framework */,
+				198EA1D928D5E726000DEE9F /* ChronometerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		198EA1D128D5E725000DEE9F /* Chronometer */ = {
+			isa = PBXGroup;
+			children = (
+				19874B1028D8D8E800DD5EE7 /* Extensions */,
+				198EA1E928D5E775000DEE9F /* Views */,
+				198EA1D228D5E725000DEE9F /* Chronometer.h */,
+				198EA1D328D5E725000DEE9F /* Chronometer.docc */,
+			);
+			path = Chronometer;
+			sourceTree = "<group>";
+		};
+		198EA1DD28D5E726000DEE9F /* ChronometerTests */ = {
+			isa = PBXGroup;
+			children = (
+				198EA1DE28D5E726000DEE9F /* ChronometerTests.swift */,
+			);
+			path = ChronometerTests;
+			sourceTree = "<group>";
+		};
+		198EA1E928D5E775000DEE9F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				191B8D7228D68FBD0094D632 /* Atoms */,
+				191B8D7328D68FD70094D632 /* Molecules */,
+				191B8D7428D68FE40094D632 /* Organisms */,
+				198EA1EC28D5F976000DEE9F /* ChronometerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		198EA22128D63324000DEE9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		198EA1CA28D5E725000DEE9F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				198EA1E028D5E726000DEE9F /* Chronometer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		198EA1CE28D5E725000DEE9F /* Chronometer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 198EA1E328D5E726000DEE9F /* Build configuration list for PBXNativeTarget "Chronometer" */;
+			buildPhases = (
+				198EA1CA28D5E725000DEE9F /* Headers */,
+				198EA1CB28D5E725000DEE9F /* Sources */,
+				198EA1CC28D5E725000DEE9F /* Frameworks */,
+				198EA1CD28D5E725000DEE9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Chronometer;
+			productName = Chronometer;
+			productReference = 198EA1CF28D5E725000DEE9F /* Chronometer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		198EA1D828D5E726000DEE9F /* ChronometerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 198EA1E628D5E726000DEE9F /* Build configuration list for PBXNativeTarget "ChronometerTests" */;
+			buildPhases = (
+				198EA1D528D5E726000DEE9F /* Sources */,
+				198EA1D628D5E726000DEE9F /* Frameworks */,
+				198EA1D728D5E726000DEE9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				198EA1DC28D5E726000DEE9F /* PBXTargetDependency */,
+			);
+			name = ChronometerTests;
+			productName = ChronometerTests;
+			productReference = 198EA1D928D5E726000DEE9F /* ChronometerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		198EA1C628D5E725000DEE9F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					198EA1CE28D5E725000DEE9F = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					198EA1D828D5E726000DEE9F = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 198EA1C928D5E725000DEE9F /* Build configuration list for PBXProject "Chronometer" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 198EA1C528D5E725000DEE9F;
+			productRefGroup = 198EA1D028D5E725000DEE9F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				198EA1CE28D5E725000DEE9F /* Chronometer */,
+				198EA1D828D5E726000DEE9F /* ChronometerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		198EA1CD28D5E725000DEE9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		198EA1D728D5E726000DEE9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		198EA1CB28D5E725000DEE9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191B8D7628D690FE0094D632 /* BatteryLevel.swift in Sources */,
+				198EA1EF28D5FB01000DEE9F /* DayWheel.swift in Sources */,
+				19874B1228D8D93300DD5EE7 /* Shape+strokeAndFill.swift in Sources */,
+				198EA22828D65929000DEE9F /* DateWheel.swift in Sources */,
+				198EA1ED28D5F977000DEE9F /* ChronometerView.swift in Sources */,
+				19874B0728D74B4800DD5EE7 /* HourScaleShape.swift in Sources */,
+				198EA1F128D62A7F000DEE9F /* ClockHand.swift in Sources */,
+				191B8D7128D66A3D0094D632 /* SubmeterBackground.swift in Sources */,
+				19874B0F28D8663800DD5EE7 /* SecondClockHand.swift in Sources */,
+				198EA1EB28D5E796000DEE9F /* ChronometerBackground.swift in Sources */,
+				191B8D7828D6916C0094D632 /* CenterShaft.swift in Sources */,
+				19874B0928D74B7000DD5EE7 /* MinuteScaleShape.swift in Sources */,
+				198EA1D428D5E725000DEE9F /* Chronometer.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		198EA1D528D5E726000DEE9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				198EA1DF28D5E726000DEE9F /* ChronometerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		198EA1DC28D5E726000DEE9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 198EA1CE28D5E725000DEE9F /* Chronometer */;
+			targetProxy = 198EA1DB28D5E726000DEE9F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		198EA1E128D5E726000DEE9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		198EA1E228D5E726000DEE9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		198EA1E428D5E726000DEE9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.kk-systems.Chronometer";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		198EA1E528D5E726000DEE9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.kk-systems.Chronometer";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		198EA1E728D5E726000DEE9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.kk-systems.ChronometerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		198EA1E828D5E726000DEE9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.kk-systems.ChronometerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		198EA1C928D5E725000DEE9F /* Build configuration list for PBXProject "Chronometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				198EA1E128D5E726000DEE9F /* Debug */,
+				198EA1E228D5E726000DEE9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		198EA1E328D5E726000DEE9F /* Build configuration list for PBXNativeTarget "Chronometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				198EA1E428D5E726000DEE9F /* Debug */,
+				198EA1E528D5E726000DEE9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		198EA1E628D5E726000DEE9F /* Build configuration list for PBXNativeTarget "ChronometerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				198EA1E728D5E726000DEE9F /* Debug */,
+				198EA1E828D5E726000DEE9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 198EA1C628D5E725000DEE9F /* Project object */;
+}
