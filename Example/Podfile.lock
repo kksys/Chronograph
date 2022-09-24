@@ -2,15 +2,15 @@ PODS:
   - Chronometer (0.0.1)
 
 DEPENDENCIES:
-  - Chronometer (from `../`)
+  - Chronometer (= 0.0.1)
 
-EXTERNAL SOURCES:
-  Chronometer:
-    :path: "../"
+SPEC REPOS:
+  https://github.com/kksys/CocoaPodsSpecs.git:
+    - Chronometer
 
 SPEC CHECKSUMS:
-  Chronometer: 13e5ecf519177cbea096deee15073fee01f2aac7
+  Chronometer: 0d62278841ba9981215bb85ddece39bd1be16223
 
-PODFILE CHECKSUM: 506f48c72e5e1bbe97430a38a4d71861077b0f81
+PODFILE CHECKSUM: 7fa02778fefcbf3d7536224e52c72c5d920b15e6
 
 COCOAPODS: 1.11.3

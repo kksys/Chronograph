@@ -77,7 +77,7 @@ make_xcframework() {
 
   pushd $(pwd)
   cd ${OUTPUT_ROOT}
-  zip -r "${ARCHIVE_FILE}" "${OUTPUT_FILE}"
+  zip -ry "${ARCHIVE_FILE}" "${OUTPUT_FILE}"
   popd
 }
 
