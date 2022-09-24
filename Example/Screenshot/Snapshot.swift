@@ -91,6 +91,11 @@ class ScreenshotService: ObservableObject {
 	func saveImage(bitmapRep: NSBitmapImageRep, path: String) throws {
 		var url = FileManager.default.homeDirectoryForCurrentUser
 		url.appendPathComponent(path, isDirectory: false)
+
+		if !isContainedAccessibleList(url: url),
+		   let permittedURL = try? askPermissionToWrite(url: url) {
+			url = permittedURL
+		}
 		
 		guard let bookmarkedURL = try? generateBookmarkedURL(url: url) else {
 			throw ScreenshotError.deniedToRetrieveBookmark
@@ -112,6 +117,49 @@ class ScreenshotService: ObservableObject {
 		}
 	}
 	
+	private func askPermissionToWrite(url: URL) throws -> URL {
+		let panel = NSSavePanel()
+		panel.directoryURL = url.baseURL
+		panel.nameFieldStringValue = url.lastPathComponent
+		panel.showsHiddenFiles = true
+		let result = panel.runModal()
+
+		if result == .OK, let selectedURL = panel.url {
+			if !FileManager.default.fileExists(atPath: selectedURL.path) {
+				FileManager.default.createFile(atPath: selectedURL.path, contents: nil)
+			}
+			
+			return selectedURL
+		}
+		
+		throw ScreenshotError.deniedToAccessFile
+	}
+	
+	private func isEqual(url1: URL?, url2: URL?) throws -> Bool {
+		let id1 = try url1?.resourceValues(forKeys: [.fileResourceIdentifierKey]).fileResourceIdentifier
+		let id2 = try url2?.resourceValues(forKeys: [.fileResourceIdentifierKey]).fileResourceIdentifier
+		
+		return id1?.isEqual(id2) ?? false
+	}
+	
+	private func isContainedAccessibleList(url: URL) -> Bool {
+		var bookmarkList: [SecurityScopedBookmarkItem] = []
+		
+		if let items = UserDefaults.standard.object(
+			[SecurityScopedBookmarkItem].self,
+			with: securityScopedBookmarkKey
+		) {
+			bookmarkList = items
+		}
+
+		guard let result = try? bookmarkList.contains(where: { item in
+			try self.isEqual(url1: url, url2: URL(string: item.absolutePath))
+		})
+		else { return false }
+		
+		return result
+	}
+	
 	private func generateBookmarkedURL(url: URL) throws -> URL {
 		var bookmarkList: [SecurityScopedBookmarkItem] = []
 		var bookmark: Data?
@@ -124,38 +172,21 @@ class ScreenshotService: ObservableObject {
 			bookmarkList = items
 		}
 
-		if let item = bookmarkList.first(where: { url.absoluteString.hasPrefix($0.absolutePath) }) {
+		if let item = try? bookmarkList.first(where: { try self.isEqual(url1: url, url2: URL(string: $0.absolutePath)) }) {
 			bookmark = item.bookmark
-		} else {
-			var url = url
-			
-			let panel = NSSavePanel()
-			panel.directoryURL = url.baseURL
-			panel.nameFieldStringValue = url.lastPathComponent
-			panel.showsHiddenFiles = true
-			let result = panel.runModal()
-			if result == .OK, let selectedURL = panel.url {
-				if !FileManager.default.fileExists(atPath: selectedURL.path) {
-					FileManager.default.createFile(atPath: selectedURL.path, contents: nil)
-				}
-				url = selectedURL
-			}
-			print(url)
-
-			if let newBookmark = try? url.bookmarkData(
-					options: .withSecurityScope,
-					includingResourceValuesForKeys: nil,
-					relativeTo: nil
-				) {
-				let item = SecurityScopedBookmarkItem(
-					bookmark: newBookmark,
-					absolutePath: url.absoluteString
-				)
-				bookmark = newBookmark
-				bookmarkList.append(item)
-				UserDefaults.standard.set(object: bookmarkList, with: securityScopedBookmarkKey)
-				UserDefaults.standard.synchronize()
-			}
+		} else if let newBookmark = try? url.bookmarkData(
+			options: .withSecurityScope,
+			includingResourceValuesForKeys: nil,
+			relativeTo: nil
+		) {
+			let item = SecurityScopedBookmarkItem(
+				bookmark: newBookmark,
+				absolutePath: url.absoluteString
+			)
+			bookmark = newBookmark
+			bookmarkList.append(item)
+			UserDefaults.standard.set(object: bookmarkList, with: securityScopedBookmarkKey)
+			UserDefaults.standard.synchronize()
 		}
 		
 		guard let bookmark = bookmark else {
