@@ -81,6 +81,22 @@ make_xcframework() {
   popd
 }
 
+make_archive_zip() {
+  local ARCHIVE_FILE="${TARGET_NAME}.archive.zip"
+  local ARCHIVE_PATH="${OUTPUT_ROOT}/${ARCHIVE_FILE}"
+
+  if [ -e "${ARCHIVE_PATH}" ]; then
+    rm "${ARCHIVE_PATH}"
+  fi
+
+  pushd $(pwd)
+  cd ${ARCHIVE_DIR}
+  zip -ry "${ARCHIVE_FILE}" "./*.xcarchive"
+  popd
+
+  mv "${ARCHIVE_DIR}/${ARCHIVE_FILE}" "${ARCHIVE_PATH}"
+}
+
 main() {
   mkdir -p ${LOG_DIR} && touch "${LOGFILE}"
   print_log_header
@@ -90,6 +106,7 @@ main() {
   archive_target "macOS" "macosx"
 
   make_xcframework
+  make_archive_zip
 }
 
 main
