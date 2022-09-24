@@ -12,7 +12,7 @@ abstract_target 'iOS' do
     all_binary!
 
     # Pods for Example
-    pod 'Chronometer', :path => '../'
+    pod 'Chronometer', :git => 'https://github.com/kksys/Chronometer.git', :branch => 'feature/xcframework_test'
 
     target 'ExampleTests - iOS' do
       inherit! :search_paths
@@ -34,7 +34,7 @@ abstract_target 'macOS' do
     all_binary!
      
     # Pods for Example
-    pod 'Chronometer', :path => '../'
+    pod 'Chronometer', :git => 'https://github.com/kksys/Chronometer.git', :branch => 'feature/xcframework_test'
      
     target 'ExampleTests - macOS' do
       inherit! :search_paths
