@@ -6,11 +6,11 @@ Pod::Spec.new do |spec|
 Chronometer is just the library to use on SwiftUI
                    DESC
 
-  spec.homepage     = "https://www.kk-systems.net/library/Chronometer"
+  spec.homepage     = "https://github.com/kksys/#{spec.name}"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = { "kksys" => "kk.systems.develop@gmail.com" }
   spec.social_media_url   = "https://twitter.com/kksys"
-  spec.source       = { :http => "https://www.kk-systems.net/library/Chronometer/Chronometer.zip" }
+  spec.source       = { :http => "https://github.com/kksys/#{spec.name}/releases/download/#{spec.version}/#{spec.name}-#{spec.version}.zip" }
 
   spec.requires_arc          = true
 
@@ -19,7 +19,7 @@ Chronometer is just the library to use on SwiftUI
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
 
-  spec.vendored_frameworks = "Chronometer.xcframework"
+  spec.vendored_frameworks = "#{spec.name}.xcframework"
 
   spec.cocoapods_version = ">= 1.9.0"
 
