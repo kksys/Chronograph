@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct SubmeterBackground: View {
-    var body: some View {
+public struct SubmeterBackground: View {
+	private var backgroundColor: Color = .black
+	private var foregroundColor: Color = .gray
+
+	public var body: some View {
 		GeometryReader { (geometry: GeometryProxy) in
 			ZStack {
 				Path { path in
@@ -21,7 +24,7 @@ struct SubmeterBackground: View {
 						)
 					)
 				}
-				.fill(Color.black, style: FillStyle(eoFill: true))
+				.fill(backgroundColor, style: FillStyle(eoFill: true))
 
 				Path { path in
 					path.addArc(
@@ -35,27 +38,41 @@ struct SubmeterBackground: View {
 						clockwise: false
 					)
 				}
-				.stroke(Color.gray, style: .init(lineWidth: 1))
+				.stroke(foregroundColor, style: .init(lineWidth: 1))
 				.rotationEffect(.degrees(-90))
 
 				ForEach(0..<12) { index in
 					HourSubScaleShape()
-						.stroke(Color.gray, style: .init(lineWidth: 1))
-						.background(HourSubScaleShape().fill(Color.gray))
+						.stroke(foregroundColor, style: .init(lineWidth: 1))
+						.background(HourSubScaleShape().fill(foregroundColor))
 						.clipped(antialiased: true)
 						.rotationEffect(.degrees(30 * Double(index)))
 				}
 				
 				ForEach(0..<60) { index in
 					MinuteSubScaleShape()
-						.stroke(Color.gray, style: .init(lineWidth: 1))
-						.background(MinuteSubScaleShape().fill(Color.gray))
+						.stroke(foregroundColor, style: .init(lineWidth: 1))
+						.background(MinuteSubScaleShape().fill(foregroundColor))
 						.clipped(antialiased: true)
 						.rotationEffect(.degrees(6 * Double(index)))
 				}
 			}
 		}
     }
+}
+
+public extension SubmeterBackground {
+	func background(_ color: Color) -> Self {
+		var _self = self
+		_self.backgroundColor = color
+		return _self
+	}
+
+	func foreground(_ color: Color) -> Self {
+		var _self = self
+		_self.foregroundColor = color
+		return _self
+	}
 }
 
 struct SubmeterBackground_Previews: PreviewProvider {

@@ -57,14 +57,19 @@ struct BatteryZoneShape: Shape {
 	}
 }
 
-struct BatteryLevel: View {
+public struct BatteryLevel: View {
 	var level: Double
 	var state: BatteryState
 	
-	let batteryZoneColorDanger: Color = .red
-	let batteryZoneColorWarning: Color = .yellow
-	let batteryZoneColorGood: Color = .green
-	
+	private var backgroundColor: Color = .black
+	private var foregroundColor: Color = .gray
+	private var batteryZoneDangerColor: Color = .red
+	private var batteryZoneWarningColor: Color = .yellow
+	private var batteryZoneGoodColor: Color = .green
+	private var batteryZoneDangerRange: ClosedRange<Double> = 0.0...0.2
+	private var batteryZoneWarningRange: ClosedRange<Double> = 0.2...0.7
+	private var batteryZoneGoodRange: ClosedRange<Double> = 0.7...1.0
+
 	let angleRange: Angle = .degrees(160)
 
 	var batteryStateIcon: String {
@@ -80,6 +85,11 @@ struct BatteryLevel: View {
 		}
 	}
 
+	public init(level: Double, state: BatteryState) {
+		self.level = level
+		self.state = state
+	}
+	
 	func calculateBatteryHandRect(geometry: GeometryProxy) -> CGRect {
 		return CGRect(
 			x: geometry.size.width / 2,
@@ -89,7 +99,7 @@ struct BatteryLevel: View {
 		)
 	}
 
-	var body: some View {
+	public var body: some View {
 		GeometryReader { geometry in
 			let batteryHandRect = calculateBatteryHandRect(geometry: geometry)
 
@@ -101,7 +111,7 @@ struct BatteryLevel: View {
 				}
 				.fill(style: FillStyle(eoFill: true))
 				.rotationEffect(.degrees(-90))
-				.foregroundColor(.black)
+				.foregroundColor(backgroundColor)
 
 				Path { path in
 					path.addArc(
@@ -118,65 +128,69 @@ struct BatteryLevel: View {
 				}
 				.stroke(style: .init(lineWidth: 1))
 				.rotationEffect(.degrees(-90))
-				.foregroundColor(.gray)
+				.foregroundColor(foregroundColor)
 				
 				Group {
 					BatteryZoneShape(
-						rangeAngle: .degrees(angleRange.degrees / 10 * 2)
+						rangeAngle: .degrees(angleRange.degrees * (batteryZoneDangerRange.upperBound - batteryZoneDangerRange.lowerBound))
 					)
 						.strokeAndFill(
-							batteryZoneColorDanger,
+							batteryZoneDangerColor,
 							strokeStyle: .init(lineWidth: 1)
 						)
-						.rotationEffect(.degrees(-angleRange.degrees / 10 * 5 - 90))
+						.rotationEffect(.degrees(-angleRange.degrees * (0.5 - batteryZoneDangerRange.lowerBound) - 90))
 					
 					BatteryZoneShape(
-						rangeAngle: .degrees(angleRange.degrees / 10 * 5)
+						rangeAngle: .degrees(angleRange.degrees * (batteryZoneWarningRange.upperBound - batteryZoneWarningRange.lowerBound))
 					)
 						.strokeAndFill(
-							batteryZoneColorWarning,
+							batteryZoneWarningColor,
 							strokeStyle: .init(lineWidth: 1)
 						)
-						.rotationEffect(.degrees(-angleRange.degrees / 10 * 3 - 90))
+						.rotationEffect(.degrees(-angleRange.degrees * (0.5 - batteryZoneWarningRange.lowerBound) - 90))
 					
 					BatteryZoneShape(
-						rangeAngle: .degrees(angleRange.degrees / 10 * 3)
+						rangeAngle: .degrees(angleRange.degrees * (batteryZoneGoodRange.upperBound - batteryZoneGoodRange.lowerBound))
 					)
 						.strokeAndFill(
-							batteryZoneColorGood,
+							batteryZoneGoodColor,
 							strokeStyle: .init(lineWidth: 1)
 						)
-						.rotationEffect(.degrees(angleRange.degrees / 10 * 2 - 90))
+						.rotationEffect(.degrees(-angleRange.degrees * (0.5 - batteryZoneGoodRange.lowerBound) - 90))
 				}
 
 				ForEach(0..<11) { level in
 					BatteryLevelGauge()
 						.strokeAndFill(
-							Color.gray,
+							foregroundColor,
 							strokeStyle: .init(lineWidth: 1)
 						)
 						.rotationEffect(
 							.degrees(angleRange.degrees * (Double(level) / 10 - 0.5))
 						)
-						.foregroundColor(.gray)
+						.foregroundColor(foregroundColor)
 				}
 
 				Text("E")
+					.foregroundColor(foregroundColor)
 					.offset(x: -(geometry.size.width / 2 - geometry.size.width / 8), y: geometry.size.height / 20)
 
 				if (state != .unplugged) {
 					Image(systemName: batteryStateIcon)
+						.foregroundColor(foregroundColor)
 						.offset(
 							y: -(geometry.size.height / 2 - geometry.size.height / 4.5)
 						)
 				}
 
 				Image(systemName: "battery.100")
+					.foregroundColor(foregroundColor)
 					.offset(
 						y: -(geometry.size.height / 2 - geometry.size.height / 2.75)
 					)
 
 				Text("F")
+					.foregroundColor(foregroundColor)
 					.offset(x: (geometry.size.width / 2 - geometry.size.width / 8), y: geometry.size.height / 20)
 
 				Group {
@@ -204,6 +218,56 @@ struct BatteryLevel: View {
 				CenterShaft(centerShaftRadius: 12)
 			}
 		}
+	}
+}
+
+public extension BatteryLevel {
+	func background(_ color: Color) -> Self {
+		var _self = self
+		_self.backgroundColor = color
+		return _self
+	}
+	
+	func foreground(_ color: Color) -> Self {
+		var _self = self
+		_self.foregroundColor = color
+		return _self
+	}
+	
+	func batteryZoneDanger(color: Color) -> Self {
+		var _self = self
+		_self.batteryZoneDangerColor = color
+		return _self
+	}
+	
+	func batteryZoneWarning(color: Color) -> Self {
+		var _self = self
+		_self.batteryZoneWarningColor = color
+		return _self
+	}
+	
+	func batteryZoneGood(color: Color) -> Self {
+		var _self = self
+		_self.batteryZoneGoodColor = color
+		return _self
+	}
+	
+	func batteryZoneDanger(range: ClosedRange<Double>) -> Self {
+		var _self = self
+		_self.batteryZoneDangerRange = range
+		return _self
+	}
+	
+	func batteryZoneWarning(range: ClosedRange<Double>) -> Self {
+		var _self = self
+		_self.batteryZoneWarningRange = range
+		return _self
+	}
+	
+	func batteryZoneGood(range: ClosedRange<Double>) -> Self {
+		var _self = self
+		_self.batteryZoneGoodRange = range
+		return _self
 	}
 }
 

@@ -10,6 +10,8 @@
 		191B8D7128D66A3D0094D632 /* SubmeterBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B8D7028D66A3D0094D632 /* SubmeterBackground.swift */; };
 		191B8D7628D690FE0094D632 /* BatteryLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B8D7528D690FE0094D632 /* BatteryLevel.swift */; };
 		191B8D7828D6916C0094D632 /* CenterShaft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B8D7728D6916C0094D632 /* CenterShaft.swift */; };
+		1944E19628E054B800BF7F95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1944E19528E054B800BF7F95 /* Assets.xcassets */; };
+		1944E19828E0550300BF7F95 /* Color+custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1944E19728E0550300BF7F95 /* Color+custom.swift */; };
 		19874B0728D74B4800DD5EE7 /* HourScaleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19874B0628D74B4800DD5EE7 /* HourScaleShape.swift */; };
 		19874B0928D74B7000DD5EE7 /* MinuteScaleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19874B0828D74B7000DD5EE7 /* MinuteScaleShape.swift */; };
 		19874B0F28D8663800DD5EE7 /* SecondClockHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19874B0E28D8663800DD5EE7 /* SecondClockHand.swift */; };
@@ -39,6 +41,8 @@
 		191B8D7028D66A3D0094D632 /* SubmeterBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmeterBackground.swift; sourceTree = "<group>"; };
 		191B8D7528D690FE0094D632 /* BatteryLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryLevel.swift; sourceTree = "<group>"; };
 		191B8D7728D6916C0094D632 /* CenterShaft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterShaft.swift; sourceTree = "<group>"; };
+		1944E19528E054B800BF7F95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1944E19728E0550300BF7F95 /* Color+custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+custom.swift"; sourceTree = "<group>"; };
 		19874B0628D74B4800DD5EE7 /* HourScaleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourScaleShape.swift; sourceTree = "<group>"; };
 		19874B0828D74B7000DD5EE7 /* MinuteScaleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteScaleShape.swift; sourceTree = "<group>"; };
 		19874B0E28D8663800DD5EE7 /* SecondClockHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondClockHand.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				19874B1128D8D93300DD5EE7 /* Shape+strokeAndFill.swift */,
+				1944E19728E0550300BF7F95 /* Color+custom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				198EA1E928D5E775000DEE9F /* Views */,
 				198EA1D228D5E725000DEE9F /* Chronometer.h */,
 				198EA1D328D5E725000DEE9F /* Chronometer.docc */,
+				1944E19528E054B800BF7F95 /* Assets.xcassets */,
 			);
 			path = Chronometer;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1944E19628E054B800BF7F95 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +293,7 @@
 				19874B0728D74B4800DD5EE7 /* HourScaleShape.swift in Sources */,
 				198EA1F128D62A7F000DEE9F /* ClockHand.swift in Sources */,
 				191B8D7128D66A3D0094D632 /* SubmeterBackground.swift in Sources */,
+				1944E19828E0550300BF7F95 /* Color+custom.swift in Sources */,
 				19874B0F28D8663800DD5EE7 /* SecondClockHand.swift in Sources */,
 				198EA1EB28D5E796000DEE9F /* ChronometerBackground.swift in Sources */,
 				191B8D7828D6916C0094D632 /* CenterShaft.swift in Sources */,

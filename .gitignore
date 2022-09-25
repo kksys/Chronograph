@@ -91,3 +91,4 @@ iOSInjectionProject/
 
 # Custom Rule
 Example/Screenshot/.screenshot/*.png
+local_test.sh

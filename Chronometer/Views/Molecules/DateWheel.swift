@@ -7,10 +7,13 @@
 
 import SwiftUI
 
-struct DateWheel: View {
+public struct DateWheel: View {
 	static let degreeOfDay: Double = 360.0 / 31.0
 	
-	var body: some View {
+	private var backgroundColor: Color = .black
+	private var dateColor: Color = .gray
+
+	public var body: some View {
 		GeometryReader { geometry in
 			Path { path in
 				path.addEllipse(
@@ -22,7 +25,7 @@ struct DateWheel: View {
 					)
 				)
 			}
-			.fill(.black)
+			.fill(backgroundColor)
 
 			Path { path in
 				path.addEllipse(
@@ -35,7 +38,7 @@ struct DateWheel: View {
 				)
 			}
 			.stroke(style: .init(lineWidth: 2))
-			.foregroundColor(.gray.opacity(0.5))
+			.foregroundColor(dateColor.opacity(0.5))
 
 			ForEach(1..<32) { date in
 				VStack {
@@ -44,7 +47,7 @@ struct DateWheel: View {
 							.font(.system(size: 18))
 							.fontWeight(.bold)
 							.rotationEffect(.degrees(-90))
-							.foregroundColor(.gray)
+							.foregroundColor(dateColor)
 					}
 					.frame(width: geometry.size.width, height: 40)
 					Spacer()
@@ -53,6 +56,20 @@ struct DateWheel: View {
 				.rotationEffect(.degrees(DateWheel.degreeOfDay * Double(date) + 90.0 - DateWheel.degreeOfDay * 1.0))
 			}
 		}
+	}
+}
+
+public extension DateWheel {
+	func background(_ color: Color) -> Self {
+		var _self = self
+		_self.backgroundColor = color
+		return _self
+	}
+	
+	func date(_ color: Color) -> Self {
+		var _self = self
+		_self.dateColor = color
+		return _self
 	}
 }
 
