@@ -14,7 +14,7 @@ abstract_target 'iOS' do
     all_binary!
 
     # Pods for Example
-    pod 'Chronometer'
+    pod 'Chronometer', '>=0.0.3'
 
     target 'ExampleTests - iOS' do
       inherit! :search_paths
@@ -36,7 +36,7 @@ abstract_target 'macOS' do
     all_binary!
      
     # Pods for Example
-    pod 'Chronometer'
+    pod 'Chronometer', '>=0.0.3'
      
     target 'ExampleTests - macOS' do
       inherit! :search_paths
