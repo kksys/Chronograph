@@ -218,7 +218,7 @@ public struct ChronometerView: View {
 			}
 
 			withAnimation(self.hour == 24 && hour == 0 ? .none : .default) {
-				self.hour = hour == 0 && second < 1
+				self.hour = hour == 0 && minute == 0 && second < 1
 					? 24
 					: Double(hour) + (Double(minute) + Double(second) / 60) / 60
 			}
@@ -349,6 +349,30 @@ private class ContentViewModel4: ContentViewModel {
 	}
 }
 
+private class ContentViewModel5: ContentViewModel {
+	private var counter: Int = 0
+	private var offsetDate: Date = Date(timeIntervalSince1970: 1662303650)
+	private var baseDate: Date = .now
+
+	override func startTimer() {
+		cancellable = Timer.publish(every: 0.1, on: .main, in: .common)
+			.autoconnect()
+			.sink { [weak self] time in
+				guard let self = self else {
+					return
+				}
+				
+				if (self.counter == 0) {
+					self.baseDate = time
+				}
+				
+				self.date = Date(timeIntervalSince1970: self.offsetDate.timeIntervalSince1970 + time.timeIntervalSince1970 - self.baseDate.timeIntervalSince1970)
+
+				self.counter = self.counter == 200 ? 0 : self.counter + 1
+			}
+	}
+}
+
 private struct ChronometerView_Preview: View {
 	@ObservedObject private var viewModel: ContentViewModel
 
@@ -357,12 +381,19 @@ private struct ChronometerView_Preview: View {
 	}
 
 	var body: some View {
-		ChronometerView(date: $viewModel.date, batteryInfo: $viewModel.batteryInfo)
-			.padding(.all, 10)
-			.frame(width: 500, height: 500)
-			.onAppear {
-				viewModel.startTimer()
-			}
+		VStack {
+			ChronometerView(date: $viewModel.date, batteryInfo: $viewModel.batteryInfo)
+				.padding(.all, 10)
+				.frame(width: 500, height: 500)
+				.onAppear {
+					viewModel.startTimer()
+				}
+			
+			Text(viewModel.date.formatted(date: .complete, time: .standard))
+				.font(.callout.monospaced())
+			Text("\(viewModel.date.get(.hour))")
+				.font(.callout.monospaced())
+		}
 	}
 }
 
@@ -391,6 +422,13 @@ struct ChronometerView_Previews: PreviewProvider {
 		
 		ZStack {
 			ChronometerView_Preview(viewModel: ContentViewModel4())
+				.padding(.all, 10)
+		}
+		.frame(width: 500, height: 500)
+		.previewLayout(.fixed(width: 500, height: 500))
+		
+		ZStack {
+			ChronometerView_Preview(viewModel: ContentViewModel5())
 				.padding(.all, 10)
 		}
 		.frame(width: 500, height: 500)
