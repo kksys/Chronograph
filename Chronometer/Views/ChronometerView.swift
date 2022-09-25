@@ -212,7 +212,7 @@ public struct ChronometerView: View {
 			let second = date.get(.second)
 			let nanosecond = date.get(.nanosecond)
 			
-			withAnimation(.linear(duration: 3)) {
+			withAnimation(.timingCurve(0.4, 0, 0.6, 1).speed(0.2)) {
 				self.dateOfMonth = Double(dateOfMonth)
 				self.day = Double(day)
 			}
