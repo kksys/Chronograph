@@ -149,13 +149,19 @@ public struct ChronometerView: View {
 		GeometryReader { geometry in
 			ZStack {
 				DateWheel()
+					.background(.chronometer.background)
+					.date(.chronometer.foreground)
 					.frame(width: geometry.size.width - offsetDateWheel, height: geometry.size.height - offsetDateWheel)
 					.rotationEffect(.degrees(-DateWheel.degreeOfDay * dateOfMonth))
 				DayWheel()
+					.background(.chronometer.background)
+					.day(.chronometer.foreground)
 					.frame(width: geometry.size.width - offsetDayWheel, height: geometry.size.height - offsetDayWheel)
 					.rotationEffect(.degrees(-DayWheel.degreeOfDay * day))
 
 				ChronometerBackground()
+					.background(.chronometer.background)
+					.foreground(.chronometer.foreground)
 
 				BatteryLevel(
 					level: batteryLevel,
@@ -172,12 +178,18 @@ public struct ChronometerView: View {
 
 				Group {
 					SubmeterBackground()
+						.background(.chronometer.background)
+						.foreground(.chronometer.foreground)
 						.frame(width: geometry.size.width / 3, height: geometry.size.height / 3)
 						.offset(x: -geometry.size.width / 4)
 					SubmeterBackground()
+						.background(.chronometer.background)
+						.foreground(.chronometer.foreground)
 						.frame(width: geometry.size.width / 3, height: geometry.size.height / 3)
 						.offset(y: -geometry.size.height / 4)
 					SubmeterBackground()
+						.background(.chronometer.background)
+						.foreground(.chronometer.foreground)
 						.frame(width: geometry.size.width / 3, height: geometry.size.height / 3)
 						.offset(y: geometry.size.height / 4)
 				}

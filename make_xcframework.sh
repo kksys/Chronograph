@@ -64,7 +64,7 @@ make_xcframework() {
 
   while read FRAMEWORK_PATH; do
     FRAMEWORK_OPTION+=" -framework $(echo "${FRAMEWORK_PATH}" | awk '{ gsub("^\.\/", "", $1); print }')"
-  done < <(find . -name "*.framework" -print)
+  done < <(find ./${ARCHIVE_DIR} -name "*.framework" -print)
 
   xcodebuild \
     -create-xcframework \
@@ -91,7 +91,7 @@ make_archive_zip() {
 
   pushd $(pwd)
   cd ${ARCHIVE_DIR}
-  zip -ry "${ARCHIVE_FILE}" "./*.xcarchive"
+  find . -name "*.xcarchive" -print | xargs zip -ry "${ARCHIVE_FILE}"
   popd
 
   mv "${ARCHIVE_DIR}/${ARCHIVE_FILE}" "${ARCHIVE_PATH}"

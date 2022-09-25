@@ -27,10 +27,26 @@ enum Day: Int, CaseIterable, Identifiable {
 	}
 }
 
-struct DayWheel: View {
+public struct DayWheel: View {
 	static let degreeOfDay: Double = 360.0 / 35.0
 	
-    var body: some View {
+	private var backgroundColor: Color = .black
+	private var dayColor: Color = .gray
+	private var sundayColor: Color = .red
+	private var saturdayColor: Color = .blue
+
+	private func dayTextColor(day: Day) -> Color {
+		switch day {
+		case .Sunday:
+			return sundayColor
+		case .Saturday:
+			return saturdayColor
+		default:
+			return dayColor
+		}
+	}
+	
+	public var body: some View {
 		GeometryReader { geometry in
 			Path { path in
 				path.addEllipse(
@@ -42,7 +58,7 @@ struct DayWheel: View {
 					)
 				)
 			}
-			.fill(.black)
+			.fill(backgroundColor)
 
 			Path { path in
 				path.addEllipse(
@@ -55,7 +71,7 @@ struct DayWheel: View {
 				)
 			}
 			.stroke(style: .init(lineWidth: 2))
-			.foregroundColor(.gray.opacity(0.5))
+			.foregroundColor(dayColor.opacity(0.5))
 
 			ForEach(Day.allCases) { day in
 				VStack {
@@ -64,7 +80,7 @@ struct DayWheel: View {
 							.font(.system(size: 18))
 							.fontWeight(.bold)
 							.rotationEffect(.degrees(-90))
-							.foregroundColor(day == .Sunday ? .red : day == .Saturday ? .blue : .gray)
+							.foregroundColor(dayTextColor(day: day))
 					}
 					.frame(width: geometry.size.width, height: 50)
 					Spacer()
@@ -74,6 +90,32 @@ struct DayWheel: View {
 			}
 		}
     }
+}
+
+public extension DayWheel {
+	func background(_ color: Color) -> Self {
+		var _self = self
+		_self.backgroundColor = color
+		return _self
+	}
+	
+	func day(_ color: Color) -> Self {
+		var _self = self
+		_self.dayColor = color
+		return _self
+	}
+	
+	func sunday(_ color: Color) -> Self {
+		var _self = self
+		_self.sundayColor = color
+		return _self
+	}
+	
+	func saturday(_ color: Color) -> Self {
+		var _self = self
+		_self.saturdayColor = color
+		return _self
+	}
 }
 
 struct DayWheel_Previews: PreviewProvider {

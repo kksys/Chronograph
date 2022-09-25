@@ -7,13 +7,16 @@
 
 import SwiftUI
 
-struct ChronometerBackground: View {
+public struct ChronometerBackground: View {
 	let offsetWindowOfDay: CGFloat = 160
 	let widthWindowOfDay: CGFloat = 90
 	let heightWindowOfDay: CGFloat = 20
 	let radiusWindowOfDay: CGFloat = 8
+	
+	private var backgroundColor: Color = .black
+	private var foregroundColor: Color = .gray
 
-    var body: some View {
+	public var body: some View {
 		GeometryReader { (geometry: GeometryProxy) in
 			ZStack {
 				Path { path in
@@ -48,7 +51,7 @@ struct ChronometerBackground: View {
 					)
 				}
 				.fill(style: FillStyle(eoFill: true))
-				.foregroundColor(.black)
+				.foregroundColor(backgroundColor)
 
 				Path { path in
 					path.addArc(
@@ -64,7 +67,7 @@ struct ChronometerBackground: View {
 				}
 				.stroke(style: .init(lineWidth: 1))
 				.rotationEffect(.degrees(-90))
-				.foregroundColor(.gray)
+				.foregroundColor(foregroundColor)
 
 				Path(roundedRect:
 					CGRect(
@@ -85,12 +88,12 @@ struct ChronometerBackground: View {
 					)
 				)
 				.stroke(style: .init(lineWidth: 1))
-				.foregroundColor(.gray)
+				.foregroundColor(foregroundColor)
 
 				ForEach(0..<12) { index in
 					HourScaleShape()
 						.strokeAndFill(
-							Color.gray,
+							foregroundColor,
 							strokeStyle: .init(lineWidth: 1)
 						)
 						.clipped(antialiased: true)
@@ -100,7 +103,7 @@ struct ChronometerBackground: View {
 				ForEach(0..<60) { index in
 					MinuteScaleShape()
 						.strokeAndFill(
-							Color.gray,
+							foregroundColor,
 							strokeStyle: .init(lineWidth: 1)
 						)
 						.clipped(antialiased: true)
@@ -109,6 +112,20 @@ struct ChronometerBackground: View {
 			}
 		}
     }
+}
+
+public extension ChronometerBackground {
+	func background(_ color: Color) -> Self {
+		var _self = self
+		_self.backgroundColor = color
+		return _self
+	}
+
+	func foreground(_ color: Color) -> Self {
+		var _self = self
+		_self.foregroundColor = color
+		return _self
+	}
 }
 
 struct ChronometerBackground_Previews: PreviewProvider {

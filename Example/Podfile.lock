@@ -1,16 +1,16 @@
 PODS:
-  - Chronometer (0.0.1)
+  - Chronometer (0.0.2)
 
 DEPENDENCIES:
-  - Chronometer (= 0.0.1)
+  - Chronometer
 
 SPEC REPOS:
   https://github.com/kksys/CocoaPodsSpecs.git:
     - Chronometer
 
 SPEC CHECKSUMS:
-  Chronometer: 0d62278841ba9981215bb85ddece39bd1be16223
+  Chronometer: 576d6b619ab4ae2c42765f03594558c8c3b66991
 
-PODFILE CHECKSUM: 7fa02778fefcbf3d7536224e52c72c5d920b15e6
+PODFILE CHECKSUM: 507bcb7bd14771c9f275df0655589db938727185
 
 COCOAPODS: 1.11.3
