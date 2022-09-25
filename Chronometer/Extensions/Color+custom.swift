@@ -12,10 +12,9 @@ public extension Color {
 	
 	struct ChronometerTheme {
 		private class DummyClass {}
-		
 		private static let frameworkBundle: Bundle = Bundle(for: type(of: DummyClass()))
 		
-		static let background: Color = Color("background", bundle: Self.frameworkBundle)
-		static let foreground: Color = Color("foreground", bundle: Self.frameworkBundle)
+		public static let background: Color = Color("background", bundle: Self.frameworkBundle)
+		public static let foreground: Color = Color("foreground", bundle: Self.frameworkBundle)
 	}
 }

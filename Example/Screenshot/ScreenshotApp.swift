@@ -19,6 +19,11 @@ struct ScreenshotApp: App {
 						minWidth: ContentView.minWidth, idealWidth: .infinity,
 						minHeight: ContentView.minWidth, idealHeight: .infinity
 					)
+					.background(
+						Circle()
+							.fill(Color.chronometer.background)
+							.padding(.all, 20)
+					)
 			}
 			.edgesIgnoringSafeArea(.all)
 			.frame(
