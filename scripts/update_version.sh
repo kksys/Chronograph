@@ -32,7 +32,7 @@ parse_params() {
   args=("$@")
 
   while :; do
-    echo "$1" | grep -E '^(\d+\.\d+\.\d+)$' > /dev/null
+    echo "$1" | grep -E '^(\d+\.\d+\.\d+(?:-.+)?)$' > /dev/null
     local _status=$?
     if [ "$_status" -eq 0 ]; then
       version="$1"
