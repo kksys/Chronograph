@@ -1,2 +1,2 @@
-# Chronometer
-Chronometer is just the library to use on SwiftUI
+# Chronograph
+Chronograph is just the library to use on SwiftUI

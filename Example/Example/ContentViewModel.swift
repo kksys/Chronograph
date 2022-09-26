@@ -1,11 +1,11 @@
 //
 //  ContentViewModel.swift
-//  ExampleChronometer
+//  Example
 //
 //  Created by KK Systems on 2022/09/19.
 //
 
-import Chronometer
+import Chronograph
 import Combine
 import Foundation
 #if os(iOS) || os(watchOS) || os(tvOS)

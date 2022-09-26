@@ -21,7 +21,7 @@ struct ScreenshotApp: App {
 					)
 					.background(
 						Circle()
-							.fill(Color.chronometer.background)
+							.fill(Color.Chronograph.background)
 							.padding(.all, 20)
 					)
 			}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGET_NAME="Chronometer"
+TARGET_NAME="Chronograph"
 TARGET_CONFIG="Release"
 OUTPUT_ROOT="build"
 ARCHIVE_DIR="${OUTPUT_ROOT}/archives"
