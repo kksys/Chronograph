@@ -56,11 +56,11 @@ parse_params() {
 }
 
 update_podspec_version() {
-  sed -i '' -E 's/(spec\.version += +)\"[^\"]+\"/\1\"'${version}'\"/g' ./Chronometer.podspec
+  sed -i '' -E 's/(spec\.version += +)\"[^\"]+\"/\1\"'${version}'\"/g' ./Chronograph.podspec
 }
 
 update_xcodeproj_version() {
-  sed -i '' -E 's/(MARKETING_VERSION += +)[^;]+;/\1'${version}';/g' ./Chronometer.xcodeproj/project.pbxproj
+  sed -i '' -E 's/(MARKETING_VERSION += +)[^;]+;/\1'${version}';/g' ./Chronograph.xcodeproj/project.pbxproj
 }
 
 main() {

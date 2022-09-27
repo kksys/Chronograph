@@ -1,6 +1,6 @@
 //
 //  DeviceInfo.swift
-//  ExampleChronometer
+//  Example
 //
 //  Created by KK Systems on 2022/09/19.
 //
@@ -9,7 +9,7 @@
 import Foundation
 import IOKit
 import IOKit.ps
-import Chronometer
+import Chronograph
 
 struct DeviceInfo {
 	enum BatteryError: Error { case error }

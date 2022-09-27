@@ -1,11 +1,11 @@
 //
 //  ContentView.swift
-//  ExampleChronometer
+//  Example
 //
 //  Created by KK Systems on 2022/09/18.
 //
 
-import Chronometer
+import Chronograph
 import Combine
 import SwiftUI
 
@@ -34,7 +34,7 @@ struct ContentView: View {
 				? idealWidth / defaultWidth
 				: 1
 			
-			ChronometerView(
+			ChronographView(
 				date: $viewModel.date,
 				batteryInfo: $viewModel.batteryInfo
 			)

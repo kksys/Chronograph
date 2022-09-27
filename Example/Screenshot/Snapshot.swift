@@ -241,7 +241,7 @@ struct Snapshot<Content>: View where Content : View {
 					let bitmap = try screenshotService.modifySize(bitmapRep: bitmapRep, size: size)
 					try screenshotService.saveImage(
 						bitmapRep: bitmap,
-						path: "Desktop/workspace/Chronometer/Example/Screenshot/.screenshot/appicon_dark@\(size).png"
+						path: "Desktop/workspace/Chronograph/Example/Screenshot/.screenshot/appicon_dark@\(size).png"
 					)
 				}
 
@@ -261,7 +261,7 @@ struct Snapshot<Content>: View where Content : View {
 					let bitmap = try screenshotService.modifySize(bitmapRep: bitmapRep, size: size)
 					try screenshotService.saveImage(
 						bitmapRep: bitmap,
-						path: "Desktop/workspace/Chronometer/Example/Screenshot/.screenshot/appicon_light@\(size).png"
+						path: "Desktop/workspace/Chronograph/Example/Screenshot/.screenshot/appicon_light@\(size).png"
 					)
 				}
 

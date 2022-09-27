@@ -7,17 +7,17 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19F3E5D728E3592500EBF464"
-               BuildableName = "Screenshot.app"
-               BlueprintName = "Screenshot"
-               ReferencedContainer = "container:Example.xcodeproj">
+               BlueprintIdentifier = "198EA1CE28D5E725000DEE9F"
+               BuildableName = "Chronograph.framework"
+               BlueprintName = "Chronograph"
+               ReferencedContainer = "container:Chronograph.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,6 +28,17 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "198EA1D828D5E726000DEE9F"
+               BuildableName = "ChronographTests.xctest"
+               BlueprintName = "ChronographTests"
+               ReferencedContainer = "container:Chronograph.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -40,16 +51,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "19F3E5D728E3592500EBF464"
-            BuildableName = "Screenshot.app"
-            BlueprintName = "Screenshot"
-            ReferencedContainer = "container:Example.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,16 +58,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "19F3E5D728E3592500EBF464"
-            BuildableName = "Screenshot.app"
-            BlueprintName = "Screenshot"
-            ReferencedContainer = "container:Example.xcodeproj">
+            BlueprintIdentifier = "198EA1CE28D5E725000DEE9F"
+            BuildableName = "Chronograph.framework"
+            BlueprintName = "Chronograph"
+            ReferencedContainer = "container:Chronograph.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

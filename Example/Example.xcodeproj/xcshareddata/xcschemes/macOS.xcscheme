@@ -7,16 +7,44 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "191D12A028E23346003E0C0E"
+               BuildableName = "Example.app"
+               BlueprintName = "macOS"
+               ReferencedContainer = "container:Example.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19F3E5D728E3592500EBF464"
-               BuildableName = "Screenshot.app"
-               BlueprintName = "Screenshot"
+               BlueprintIdentifier = "191D12BA28E2334C003E0C0E"
+               BuildableName = "macOSUITests.xctest"
+               BlueprintName = "macOSUITests"
+               ReferencedContainer = "container:Example.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "191D12B028E2334C003E0C0E"
+               BuildableName = "macOSTests.xctest"
+               BlueprintName = "macOSTests"
                ReferencedContainer = "container:Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +72,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "19F3E5D728E3592500EBF464"
-            BuildableName = "Screenshot.app"
-            BlueprintName = "Screenshot"
+            BlueprintIdentifier = "191D12A028E23346003E0C0E"
+            BuildableName = "Example.app"
+            BlueprintName = "macOS"
             ReferencedContainer = "container:Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +89,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "19F3E5D728E3592500EBF464"
-            BuildableName = "Screenshot.app"
-            BlueprintName = "Screenshot"
+            BlueprintIdentifier = "191D12A028E23346003E0C0E"
+            BuildableName = "Example.app"
+            BlueprintName = "macOS"
             ReferencedContainer = "container:Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
