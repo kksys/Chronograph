@@ -1,16 +1,16 @@
 PODS:
-  - Chronograph (0.0.4-alpha0)
+  - Chronograph (0.0.4)
 
 DEPENDENCIES:
-  - Chronograph (= 0.0.4-alpha0)
+  - Chronograph (= 0.0.4)
 
 SPEC REPOS:
   https://github.com/kksys/CocoaPodsSpecs.git:
     - Chronograph
 
 SPEC CHECKSUMS:
-  Chronograph: 9b51b58dfa4839621d9762b1cdd08f119aec2a0f
+  Chronograph: cddde6337d3259b0777c8d28e46cc4ff69352c77
 
-PODFILE CHECKSUM: e8a17f267b3fbb88522f579d32b1ad4eb041191e
+PODFILE CHECKSUM: 5b1ac0513818cce58e2b4791d46199252190a63f
 
 COCOAPODS: 1.11.3
