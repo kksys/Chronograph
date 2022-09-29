@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "Chronograph"
-  spec.version      = "0.0.5"
+  spec.version      = "0.0.4"
   spec.summary      = "Chronograph is just the library to use on SwiftUI"
   spec.description  = <<-DESC
 Chronograph is just the library to use on SwiftUI
