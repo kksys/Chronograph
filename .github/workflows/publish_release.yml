@@ -67,6 +67,8 @@ jobs:
       - name: Recreate new release to official
         run: |
           gh release delete "$TARGET_VERSION" -y
+          git tag -d "$TARGET_VERSION"
+          git push --delete origin "$TARGET_VERSION"
           gh release create "$TARGET_VERSION" \
             --generate-notes \
             --target master \
