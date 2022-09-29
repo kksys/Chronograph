@@ -72,7 +72,7 @@ jobs:
           git commit -m "${COMMIT_MSG}"
           git push --set-upstream origin ${{ env.BRANCH_NAME }}
           gh pr create --base master --body "${COMMIT_MSG}" --title "${COMMIT_MSG}"
-          gh pr merge ${{ env.BRANCH_NAME }} --admin
+          gh pr merge ${{ env.BRANCH_NAME }} --admin --squash
           git checkout master
           git pull
           git branch -d ${{ env.BRANCH_NAME }}
