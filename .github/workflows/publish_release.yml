@@ -14,6 +14,7 @@ jobs:
     env:
       XCODE_PATH: "/Applications/Xcode_13.4.1.app"
       TARGET_VERSION: "${{ github.event.release.name }}"
+      BRANCH_NAME: feature/release_${{ env.TARGET_VERSION }}
 
     steps:
       - name: Checkout
@@ -61,18 +62,19 @@ jobs:
         run: |
           grep '\[CP\] Embed Pods Frameworks' ./Example.xcodeproj/project.pbxproj
         working-directory: ./Example
-      - name: Commit the changes of new version
-        uses: swinton/commit@v2.x
+      - name: Commit and merge the changes of new version
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          files: |
-            Chronograph.podspec
-            Chronograph.xcodeproj/project.pbxproj
-            Example/Podfile
-            Example/Podfile.lock
-          commit-message: ":arrow_up: Updated version $TARGET_VERSION"
-          ref: refs/heads/master
+        run: |
+          git checkout -b ${{ env.BRANCH_NAME }}
+          git add ./*
+          git commit -m ":arrow_up: Updated version $TARGET_VERSION"
+          git push
+          gh pr create --base master -f
+          gh pr merge ${{ env.BRANCH_NAME }} --admin
+          git checkout master
+          git pull
+          git branch -d ${{ env.BRANCH_NAME }}
       - name: Recreate new release to official
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
