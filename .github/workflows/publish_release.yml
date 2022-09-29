@@ -67,7 +67,7 @@ jobs:
           BRANCH_NAME: feature/release_${{ env.TARGET_VERSION }}
         run: |
           git checkout -b ${{ env.BRANCH_NAME }}
-          git add ./*
+          git add -A
           git commit -m ":arrow_up: Updated version $TARGET_VERSION"
           git push
           gh pr create --base master -f
