@@ -1,0 +1,75 @@
+name: Chronograph - publish release
+
+on:
+  release:
+    types:
+      - "published"
+
+jobs:
+  build:
+    name: Build and analyse default scheme using xcodebuild command
+    if: ${{ github.event.release.body == '' }}
+    runs-on: macos-12
+
+    env:
+      XCODE_PATH: "/Applications/Xcode_14.0.app"
+      TARGET_VERSION: "${{ github.event.release.name }}"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set Xcode toolset version
+        run: |
+          sudo xcode-select -s "$XCODE_PATH"
+          sudo xcode-select -p
+      - name: Update version
+        run: |
+          ./scripts/update_version.sh "$TARGET_VERSION"
+      - name: Build
+        run: |
+          ./scripts/make_xcframework.sh
+          mv "./build/Chronograph.zip" "./build/Chronograph-$TARGET_VERSION.zip"
+          mv "./build/Chronograph.archive.zip" "./build/Chronograph-$TARGET_VERSION.archive.zip"
+      - name: Push the podspec of new version to private repo
+        uses: maxep/pod-repo-push-action@0.1.2
+        with:
+          repo-url: https://kksys:${{ secrets.ACCESS_TOKEN }}@github.com/kksys/CocoaPodsSpecs.git
+      - name: Upload artifact to release
+        run: |
+          gh release upload "$TARGET_VERSION" \
+            "./build/Chronograph-$TARGET_VERSION.zip#Chronograph-$TARGET_VERSION.zip" \
+            "./build/Chronograph-$TARGET_VERSION.archive.zip#Chronograph-$TARGET_VERSION.archive.zip" \
+            --clobber
+      - name: Prepare Example project to use new framework
+        run: |
+          pod update
+          xcodebuild \
+            build \
+            -workspace "Example.xcworkspace" \
+            -scheme iOS \
+            -sdk iphonesimulator \
+            -destination "generic/platform=iOS Simulator" \
+            -configuration "Release"
+        working-directory: ./Example
+      - name: Check the xcproject is correct
+        run: |
+          grep '\[CP\] Embed Pods Frameworks' ./Example.xcodeproj/project.pbxproj
+        working-directory: ./Example
+      - name: Commit the changes of new version
+        uses: swinton/commit@v2.x
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: |
+            ./*
+          commit-message: ":arrow_up: Updated version $TARGET_VERSION"
+          ref: refs/heads/master
+      - name: Recreate new release to official
+        run: |
+          gh release delete "$TARGET_VERSION" -y
+          gh release create "$TARGET_VERSION" \
+            --generate-notes \
+            --target master \
+            --title "$TARGET_VERSION" \
+            "./build/Chronograph-$TARGET_VERSION.zip#Chronograph-$TARGET_VERSION.zip" \
+            "./build/Chronograph-$TARGET_VERSION.archive.zip#Chronograph-$TARGET_VERSION.archive.zip"
