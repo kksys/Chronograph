@@ -30,16 +30,16 @@ jobs:
           ./scripts/make_xcframework.sh
           mv "./build/Chronograph.zip" "./build/Chronograph-$TARGET_VERSION.zip"
           mv "./build/Chronograph.archive.zip" "./build/Chronograph-$TARGET_VERSION.archive.zip"
-      - name: Push the podspec of new version to private repo
-        uses: maxep/pod-repo-push-action@0.1.2
-        with:
-          repo-url: https://kksys:${{ secrets.ACCESS_TOKEN }}@github.com/kksys/CocoaPodsSpecs.git
       - name: Upload artifact to release
         run: |
           gh release upload "$TARGET_VERSION" \
             "./build/Chronograph-$TARGET_VERSION.zip#Chronograph-$TARGET_VERSION.zip" \
             "./build/Chronograph-$TARGET_VERSION.archive.zip#Chronograph-$TARGET_VERSION.archive.zip" \
             --clobber
+      - name: Push the podspec of new version to private repo
+        uses: maxep/pod-repo-push-action@0.1.2
+        with:
+          repo-url: https://kksys:${{ secrets.ACCESS_TOKEN }}@github.com/kksys/CocoaPodsSpecs.git
       - name: Prepare Example project to use new framework
         run: |
           pod update
