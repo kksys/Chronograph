@@ -42,6 +42,10 @@ jobs:
         run: |
           pod repo add kksys https://kksys:${{ secrets.ACCESS_TOKEN }}@github.com/kksys/CocoaPodsSpecs.git
           pod repo push kksys Chronograph.podspec --allow-warnings
+      - name: Update import version
+        run: |
+          sed -i '' -E "s/(pod 'Chronograph', +')[^']*(')/\1${TARGET_VERSION}\2/g" ./Podfile
+        working-directory: ./Example
       - name: Prepare Example project to use new framework
         run: |
           pod update
@@ -57,21 +61,16 @@ jobs:
         run: |
           grep '\[CP\] Embed Pods Frameworks' ./Example.xcodeproj/project.pbxproj
         working-directory: ./Example
-      - name: Enumerate files to commit
-        run: |
-          GIT_FILE_LIST=""
-          while read GIT_FILE_PATH; do
-            GIT_FILE_LIST+="\"${GIT_FILE_PATH}\" "
-          done < <(git diff --name-only)
-          echo "GIT_FILE_LIST=${GIT_FILE_LIST}" >> $GITHUB_ENV
       - name: Commit the changes of new version
         uses: swinton/commit@v2.x
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIT_FILE_LIST: ${{ env.GIT_FILE_LIST }}
         with:
           files: |
-            ${{ env.GIT_FILE_LIST }}
+            Chronograph.podspec
+            Chronograph.xcodeproj/project.pbxproj
+            Example/Podfile
+            Example/Podfile.lock
           commit-message: ":arrow_up: Updated version $TARGET_VERSION"
           ref: refs/heads/master
       - name: Recreate new release to official
