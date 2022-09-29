@@ -18,6 +18,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Set git user
+        run: |
+          git config --local user.email "${{ secrets.GIT_EMAIL }}"
+          git config --local user.name "${{ secrets.GIT_USER }}"
       - name: Set Xcode toolset version
         run: |
           sudo xcode-select -s "$XCODE_PATH"
@@ -32,7 +36,7 @@ jobs:
           mv "./build/Chronograph.archive.zip" "./build/Chronograph-$TARGET_VERSION.archive.zip"
       - name: Upload artifact to release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           gh release upload "$TARGET_VERSION" \
             "./build/Chronograph-$TARGET_VERSION.zip#Chronograph-$TARGET_VERSION.zip" \
@@ -63,7 +67,7 @@ jobs:
         working-directory: ./Example
       - name: Commit and merge the changes of new version
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH_NAME: feature/release_${{ env.TARGET_VERSION }}
         run: |
           COMMIT_MSG=":arrow_up: Updated version $TARGET_VERSION"
@@ -78,7 +82,7 @@ jobs:
           git branch -d ${{ env.BRANCH_NAME }}
       - name: Recreate new release to official
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           gh release delete "$TARGET_VERSION" -y
           git tag -d "$TARGET_VERSION"
