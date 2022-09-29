@@ -40,6 +40,8 @@ jobs:
             --clobber
       - name: Push the podspec of new version to private repo
         uses: maxep/pod-repo-push-action@0.1.2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           repo-url: https://kksys:${{ secrets.ACCESS_TOKEN }}@github.com/kksys/CocoaPodsSpecs.git
       - name: Prepare Example project to use new framework
