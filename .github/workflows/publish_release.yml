@@ -58,7 +58,7 @@ jobs:
       - name: Commit the changes of new version
         uses: swinton/commit@v2.x
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         with:
           files: |
             ./*
