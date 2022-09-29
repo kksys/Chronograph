@@ -12,7 +12,7 @@ jobs:
     runs-on: macos-12
 
     env:
-      XCODE_PATH: "/Applications/Xcode_14.0.app"
+      XCODE_PATH: "/Applications/Xcode_13.4.1.app"
       TARGET_VERSION: "${{ github.event.release.name }}"
 
     steps:
@@ -39,11 +39,9 @@ jobs:
             "./build/Chronograph-$TARGET_VERSION.archive.zip#Chronograph-$TARGET_VERSION.archive.zip" \
             --clobber
       - name: Push the podspec of new version to private repo
-        uses: maxep/pod-repo-push-action@0.1.2
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          repo-url: https://kksys:${{ secrets.ACCESS_TOKEN }}@github.com/kksys/CocoaPodsSpecs.git
+        run: |
+          pod repo add kksys https://kksys:${{ secrets.ACCESS_TOKEN }}@github.com/kksys/CocoaPodsSpecs.git
+          pod repo push kksys Chronograph.podspec --allow-warnings
       - name: Prepare Example project to use new framework
         run: |
           pod update
